@@ -1,0 +1,17 @@
+# This is a Docker Compose file for setting up a PostgreSQL database for the
+#  US Census API data.
+# It's used only for local testing.
+services:
+  db:
+    image: postgres
+    container_name: us_census_db_container
+    environment:
+      POSTGRES_PASSWORD: postgres-password
+      POSTGRES_DB: us_census
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
